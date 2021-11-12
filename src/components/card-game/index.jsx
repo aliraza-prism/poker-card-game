@@ -114,7 +114,14 @@ const CardGame = () => {
         cardImages={cardImages}
       />
       <div className="button-wrapper">
-        {!isAceAvailable && (
+        {isAceAvailable ? (
+          <Button
+            onClick={handleReset}
+            className="btn-play-again"
+          >
+            Play Again
+          </Button>
+        ) : (
           <Button onClick={handleDeal} variant="outlined">
             Deal
           </Button>
@@ -122,11 +129,7 @@ const CardGame = () => {
       </div>
       <div className="result-reset-btn">
         <ResultCard win={countWin} loss={countLoss} />
-        <Button
-          onClick={handleReset}
-          variant="contained"
-          color="secondary"
-        >
+        <Button onClick={handleReset} className="btn-reset">
           Reset
         </Button>
       </div>
